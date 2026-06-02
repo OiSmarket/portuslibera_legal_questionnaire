@@ -1,187 +1,162 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ankieta ZUW / Анкета ЗУВ</title>
+  <title>Ankieta ZUW</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="lang-switcher">
+  <button onclick="setLang('pl')" data-lang-btn="pl" class="active">🇵🇱 PL</button>
+  <button onclick="setLang('ua')" data-lang-btn="ua">🇺🇦 UA</button>
+  <button onclick="setLang('ru')" data-lang-btn="ru">🇷🇺 RU</button>
+  <button onclick="setLang('en')" data-lang-btn="en">🇬🇧 EN</button>
+</div>
+
 <div class="container">
   <div class="header">
-    <h1>Ankieta informacyjna / Інформаційна анкета / Информационная анкета</h1>
-    <p>Urząd do Spraw Cudzoziemców | Управління у справах іноземців | Управление по делам иностранцев</p>
+    <h1 data-i18n="header_title"></h1>
+    <p data-i18n="header_sub"></p>
   </div>
+
   <form class="form-body" id="mainForm">
 
     <!-- SECTION A -->
     <div class="section">
-      <div class="section-title">
-        A. DANE OSOBOWE CUDZOZIEMCA
-        <span>A. ПЕРСОНАЛЬНІ ДАНІ ІНОЗЕМЦЯ</span>
-        <span>A. ПЕРСОНАЛЬНЫЕ ДАННЫЕ ИНОСТРАНЦА</span>
-      </div>
+      <div class="section-title" data-i18n="sec_a"></div>
+
       <div class="row2">
         <div class="field">
-          <div class="label-pl">1. Nazwisko</div>
-          <div class="label-ua">1. Прізвище</div>
-          <div class="label-ru">1. Фамилия</div>
+          <label class="flabel" data-i18n="f_nazwisko"></label>
           <input type="text" name="nazwisko">
         </div>
         <div class="field">
-          <div class="label-pl">2. Nazwisko poprzednie</div>
-          <div class="label-ua">2. Попереднє прізвище</div>
-          <div class="label-ru">2. Предыдущая фамилия</div>
+          <label class="flabel" data-i18n="f_nazwisko_poprz"></label>
           <input type="text" name="nazwisko_poprzednie">
         </div>
       </div>
+
       <div class="row2">
         <div class="field">
-          <div class="label-pl">3. Nazwisko rodowe</div>
-          <div class="label-ua">3. Прізвище родове</div>
-          <div class="label-ru">3. Фамилия при рождении</div>
+          <label class="flabel" data-i18n="f_nazwisko_rod"></label>
           <input type="text" name="nazwisko_rodowe">
         </div>
         <div class="field">
-          <div class="label-pl">4. Imię (imiona)</div>
-          <div class="label-ua">4. Ім'я</div>
-          <div class="label-ru">4. Имя</div>
+          <label class="flabel" data-i18n="f_imie"></label>
           <input type="text" name="imie">
         </div>
       </div>
+
       <div class="row2">
         <div class="field">
-          <div class="label-pl">5. Imię poprzednie</div>
-          <div class="label-ua">5. Попереднє ім'я</div>
-          <div class="label-ru">5. Предыдущее имя</div>
+          <label class="flabel" data-i18n="f_imie_poprz"></label>
           <input type="text" name="imie_poprzednie">
         </div>
         <div class="field">
-          <div class="label-pl">6. Imię ojca</div>
-          <div class="label-ua">6. Ім'я батька</div>
-          <div class="label-ru">6. Имя отца</div>
+          <label class="flabel" data-i18n="f_imie_ojca"></label>
           <input type="text" name="imie_ojca">
         </div>
       </div>
+
       <div class="row2">
         <div class="field">
-          <div class="label-pl">7. Imię matki</div>
-          <div class="label-ua">7. Ім'я матері</div>
-          <div class="label-ru">7. Имя матери</div>
+          <label class="flabel" data-i18n="f_imie_matki"></label>
           <input type="text" name="imie_matki">
         </div>
         <div class="field">
-          <div class="label-pl">8. Nazwisko rodowe matki</div>
-          <div class="label-ua">8. Дівоче прізвище матері</div>
-          <div class="label-ru">8. Девичья фамилия матери</div>
+          <label class="flabel" data-i18n="f_nazwisko_matki"></label>
           <input type="text" name="nazwisko_matki">
         </div>
       </div>
+
       <div class="row2">
         <div class="field">
-          <div class="label-pl">9. Data urodzenia</div>
-          <div class="label-ua">9. Дата народження</div>
-          <div class="label-ru">9. Дата рождения</div>
+          <label class="flabel" data-i18n="f_data_ur"></label>
           <input type="date" name="data_urodzenia">
         </div>
         <div class="field">
-          <div class="label-pl">10. Płeć</div>
-          <div class="label-ua">10. Стать</div>
-          <div class="label-ru">10. Пол</div>
+          <label class="flabel" data-i18n="f_plec"></label>
           <div class="radio-group">
-            <label><input type="radio" name="plec" value="M"> Mężczyzna / Чоловік / Мужчина</label>
-            <label><input type="radio" name="plec" value="K"> Kobieta / Жінка / Женщина</label>
+            <label><input type="radio" name="plec" value="M"> <span data-i18n="opt_male"></span></label>
+            <label><input type="radio" name="plec" value="K"> <span data-i18n="opt_female"></span></label>
           </div>
         </div>
       </div>
+
       <div class="row2">
         <div class="field">
-          <div class="label-pl">11. Miejsce urodzenia</div>
-          <div class="label-ua">11. Місце народження</div>
-          <div class="label-ru">11. Место рождения</div>
+          <label class="flabel" data-i18n="f_miejsce_ur"></label>
           <input type="text" name="miejsce_urodzenia">
         </div>
         <div class="field">
-          <div class="label-pl">12. Państwo urodzenia</div>
-          <div class="label-ua">12. Країна народження</div>
-          <div class="label-ru">12. Страна рождения</div>
+          <label class="flabel" data-i18n="f_panstwo_ur"></label>
           <input type="text" name="panstwo_urodzenia">
         </div>
       </div>
+
       <div class="row2">
         <div class="field">
-          <div class="label-pl">13. Narodowość</div>
-          <div class="label-ua">13. Національність</div>
-          <div class="label-ru">13. Национальность</div>
+          <label class="flabel" data-i18n="f_narodowosc"></label>
           <input type="text" name="narodowosc">
         </div>
         <div class="field">
-          <div class="label-pl">14. Obywatelstwo</div>
-          <div class="label-ua">14. Громадянство</div>
-          <div class="label-ru">14. Гражданство</div>
+          <label class="flabel" data-i18n="f_obywatelstwo"></label>
           <input type="text" name="obywatelstwo">
         </div>
       </div>
+
       <div class="row2">
         <div class="field">
-          <div class="label-pl">15. Stan cywilny</div>
-          <div class="label-ua">15. Сімейний стан</div>
-          <div class="label-ru">15. Семейное положение</div>
+          <label class="flabel" data-i18n="f_stan_cyw"></label>
           <select name="stan_cywilny">
-            <option value="">-- wybierz / оберіть / выберите --</option>
-            <option>kawaler/panna – неодружений/незаміжня – холост/не замужем</option>
-            <option>żonaty/zamężna – одружений/заміжня – женат/замужем</option>
-            <option>rozwiedziony/rozwiedziona – розлучений/розлучена – разведён/разведена</option>
-            <option>wdowiec/wdowa – вдівець/вдова – вдовец/вдова</option>
+            <option value="" data-i18n="opt_choose"></option>
+            <option value="single" data-i18n="opt_single"></option>
+            <option value="married" data-i18n="opt_married"></option>
+            <option value="divorced" data-i18n="opt_divorced"></option>
+            <option value="widowed" data-i18n="opt_widowed"></option>
           </select>
         </div>
         <div class="field">
-          <div class="label-pl">16. Wykształcenie</div>
-          <div class="label-ua">16. Освіта</div>
-          <div class="label-ru">16. Образование</div>
+          <label class="flabel" data-i18n="f_wyksztalcenie"></label>
           <select name="wyksztalcenie">
-            <option value="">-- wybierz / оберіть / выберите --</option>
-            <option>podstawowe – початкова – начальное</option>
-            <option>średnie – середня – среднее</option>
-            <option>wyższe – вища – высшее</option>
-            <option>zawodowe – професійна – профессиональное</option>
+            <option value="" data-i18n="opt_choose"></option>
+            <option value="primary" data-i18n="opt_edu_primary"></option>
+            <option value="secondary" data-i18n="opt_edu_secondary"></option>
+            <option value="higher" data-i18n="opt_edu_higher"></option>
+            <option value="vocational" data-i18n="opt_edu_vocational"></option>
           </select>
         </div>
       </div>
-      <div class="label-pl" style="margin-bottom:4px">17. Rysopis</div>
-      <div class="label-ua" style="margin-bottom:2px">17. Опис зовнішності</div>
-      <div class="label-ru" style="margin-bottom:10px">17. Внешность</div>
-      <div class="row3">
+
+      <label class="flabel" data-i18n="f_rysopis"></label>
+      <div class="row3" style="margin-top:8px">
         <div class="field">
-          <div class="label-ua">Wzrost / Зріст / Рост (cm)</div>
-          <input type="number" name="wzrost" placeholder="np. 175">
+          <label class="flabel-sm" data-i18n="f_wzrost"></label>
+          <input type="number" name="wzrost" placeholder="cm">
         </div>
         <div class="field">
-          <div class="label-ua">Kolor oczu / Колір очей / Цвет глаз</div>
+          <label class="flabel-sm" data-i18n="f_oczy"></label>
           <input type="text" name="kolor_oczu">
         </div>
         <div class="field">
-          <div class="label-ua">Znaki szczególne / Особливі прикмети / Особые приметы</div>
+          <label class="flabel-sm" data-i18n="f_znaki"></label>
           <input type="text" name="znaki_szczegolne">
         </div>
       </div>
+
       <div class="row3">
         <div class="field">
-          <div class="label-pl">18. Numer PESEL</div>
-          <div class="label-ua">18. Номер PESEL</div>
-          <div class="label-ru">18. Номер PESEL</div>
+          <label class="flabel" data-i18n="f_pesel"></label>
           <input type="text" name="pesel" maxlength="11">
         </div>
         <div class="field">
-          <div class="label-pl">19. Numer telefonu</div>
-          <div class="label-ua">19. Номер телефону</div>
-          <div class="label-ru">19. Номер телефона</div>
+          <label class="flabel" data-i18n="f_telefon"></label>
           <input type="text" name="telefon">
         </div>
         <div class="field">
-          <div class="label-pl">20. Email</div>
-          <div class="label-ua">20. Електронна пошта</div>
-          <div class="label-ru">20. Электронная почта</div>
+          <label class="flabel" data-i18n="f_email"></label>
           <input type="email" name="email">
         </div>
       </div>
@@ -189,23 +164,14 @@
 
     <!-- SECTION B -->
     <div class="section">
-      <div class="section-title">
-        B. MIEJSCE POBYTU CUDZOZIEMCA
-        <span>B. МІСЦЕ ПРОЖИВАННЯ ІНОЗЕМЦЯ</span>
-        <span>B. МЕСТО ПРОЖИВАНИЯ ИНОСТРАНЦА</span>
-      </div>
-      <div class="note">
-        Miejsce aktualnego pobytu na terytorium Rzeczypospolitej Polskiej.<br>
-        <span style="color:#2a7a2a">Місце актуального проживання в Республіці Польща.</span><br>
-        <span style="color:#8b3a00">Место актуального проживания в Республике Польша.</span>
-      </div>
+      <div class="section-title" data-i18n="sec_b"></div>
+      <div class="note" data-i18n="note_b"></div>
+
       <div class="row2">
         <div class="field">
-          <div class="label-pl">1. Województwo</div>
-          <div class="label-ua">1. Воєводство</div>
-          <div class="label-ru">1. Воеводство</div>
+          <label class="flabel" data-i18n="f_woj"></label>
           <select name="wojewodztwo">
-            <option value="">-- wybierz / оберіть / выберите --</option>
+            <option value="" data-i18n="opt_choose"></option>
             <option>dolnośląskie</option><option>kujawsko-pomorskie</option>
             <option>lubelskie</option><option>lubuskie</option>
             <option>łódzkie</option><option>małopolskie</option>
@@ -217,73 +183,59 @@
           </select>
         </div>
         <div class="field">
-          <div class="label-pl">2. Miejscowość</div>
-          <div class="label-ua">2. Населений пункт</div>
-          <div class="label-ru">2. Населённый пункт</div>
+          <label class="flabel" data-i18n="f_miejscowosc"></label>
           <input type="text" name="miejscowosc">
         </div>
       </div>
+
       <div class="row3">
         <div class="field">
-          <div class="label-pl">3. Ulica</div>
-          <div class="label-ua">3. Вулиця</div>
-          <div class="label-ru">3. Улица</div>
+          <label class="flabel" data-i18n="f_ulica"></label>
           <input type="text" name="ulica">
         </div>
         <div class="field">
-          <div class="label-pl">4. Numer domu</div>
-          <div class="label-ua">4. Номер будинку</div>
-          <div class="label-ru">4. Номер дома</div>
+          <label class="flabel" data-i18n="f_nr_domu"></label>
           <input type="text" name="nr_domu">
         </div>
         <div class="field">
-          <div class="label-pl">5. Numer mieszkania</div>
-          <div class="label-ua">5. Номер квартири</div>
-          <div class="label-ru">5. Номер квартиры</div>
+          <label class="flabel" data-i18n="f_nr_mieszk"></label>
           <input type="text" name="nr_mieszkania">
         </div>
       </div>
+
       <div class="field" style="max-width:200px">
-        <div class="label-pl">6. Kod pocztowy</div>
-        <div class="label-ua">6. Поштовий індекс</div>
-        <div class="label-ru">6. Почтовый индекс</div>
+        <label class="flabel" data-i18n="f_kod"></label>
         <input type="text" name="kod_pocztowy" placeholder="00-000">
       </div>
     </div>
 
     <!-- SECTION C -->
     <div class="section">
-      <div class="section-title">
-        C. INFORMACJE DODATKOWE
-        <span>C. ДОДАТКОВА ІНФОРМАЦІЯ</span>
-        <span>C. ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</span>
-      </div>
+      <div class="section-title" data-i18n="sec_c"></div>
 
       <!-- I. Cel pobytu -->
       <div class="field">
-        <div class="label-pl" style="margin-bottom:3px">I. Główny cel pobytu (wybrać JEDEN)</div>
-        <div class="label-ua" style="margin-bottom:3px">I. Основна мета перебування (обрати ОДНУ)</div>
-        <div class="label-ru" style="margin-bottom:10px">I. Основная цель пребывания (выбрать ОДНУ)</div>
-        <div class="checkbox-list">
-          <label><input type="radio" name="cel_pobytu" value="1"> 1) Wykonywanie pracy / Виконання роботи / Выполнение работы</label>
-          <label><input type="radio" name="cel_pobytu" value="2"> 2) Praca w zawodzie wymagającym wysokich kwalifikacji / Робота за професією / Работа по профессии высокой квалификации</label>
-          <label><input type="radio" name="cel_pobytu" value="3"> 3) Praca cudzoziemca delegowanego / Робота іноземцем, делегованим / Работа иностранцем, делегированным</label>
-          <label><input type="radio" name="cel_pobytu" value="4"> 4) Prowadzenie działalności gospodarczej / Ведення бізнесу / Ведение бизнеса</label>
-          <label><input type="radio" name="cel_pobytu" value="5"> 5) Studia / Навчання / Учёба</label>
-          <label><input type="radio" name="cel_pobytu" value="6"> 6) Prowadzenie badań naukowych / Наукові дослідження / Научные исследования</label>
-          <label><input type="radio" name="cel_pobytu" value="7"> 7) Mobilność długoterminowa naukowca / Довгострокова мобільність / Долгосрочная мобильность учёного</label>
-          <label><input type="radio" name="cel_pobytu" value="8"> 8) Odbycie stażu / Стажування / Стажировка</label>
-          <label><input type="radio" name="cel_pobytu" value="9"> 9) Wolontariat europejski / Участь у програмі ЄВС / Европейское волонтёрство</label>
-          <label><input type="radio" name="cel_pobytu" value="10"> 10) Pobyt z obywatelem RP / Проживання з громадянином Польщі / Проживание с гражданином Польши</label>
-          <label><input type="radio" name="cel_pobytu" value="11"> 11) Pobyt z cudzoziemcem / Проживання з іноземцем / Проживание с иностранцем</label>
-          <label><input type="radio" name="cel_pobytu" value="12"> 12) Mobilność członka rodziny naukowca / Мобільність члена сім'ї / Мобильность члена семьи учёного</label>
-          <label><input type="radio" name="cel_pobytu" value="13"> 13) Ofiara handlu ludźmi / Жертва торгівлі людьми / Жертва торговли людьми</label>
-          <label><input type="radio" name="cel_pobytu" value="14"> 14) Krótkotrwały pobyt / Короткострокове перебування / Кратковременное пребывание</label>
-          <label><input type="radio" name="cel_pobytu" value="15"> 15) Przedłużenie pobytu – praca sezonowa / Сезонна робота / Сезонная работа</label>
-          <label><input type="radio" name="cel_pobytu" value="16"> 16) Inne okoliczności / Інші обставини / Иные обстоятельства</label>
+        <label class="flabel" data-i18n="f_cel_title"></label>
+        <div class="checkbox-list" style="margin-top:8px">
+          <label><input type="radio" name="cel_pobytu" value="1"> <span data-i18n="cel_1"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="2"> <span data-i18n="cel_2"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="3"> <span data-i18n="cel_3"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="4"> <span data-i18n="cel_4"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="5"> <span data-i18n="cel_5"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="6"> <span data-i18n="cel_6"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="7"> <span data-i18n="cel_7"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="8"> <span data-i18n="cel_8"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="9"> <span data-i18n="cel_9"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="10"> <span data-i18n="cel_10"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="11"> <span data-i18n="cel_11"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="12"> <span data-i18n="cel_12"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="13"> <span data-i18n="cel_13"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="14"> <span data-i18n="cel_14"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="15"> <span data-i18n="cel_15"></span></label>
+          <label><input type="radio" name="cel_pobytu" value="16"> <span data-i18n="cel_16"></span></label>
         </div>
         <div class="field" style="margin-top:10px">
-          <div class="label-ua">Jeśli inne – proszę określić / Якщо інші – уточніть / Если иные – уточните:</div>
+          <label class="flabel-sm" data-i18n="f_cel_inne"></label>
           <input type="text" name="cel_inne">
         </div>
       </div>
@@ -292,173 +244,144 @@
 
       <!-- II. Rodzina -->
       <div class="field">
-        <div class="label-pl" style="margin-bottom:3px">II. Członkowie rodziny zamieszkujący w Polsce</div>
-        <div class="label-ua" style="margin-bottom:3px">II. Члени сім'ї, які проживають в Польщі</div>
-        <div class="label-ru" style="margin-bottom:10px">II. Члены семьи, проживающие в Польше</div>
-        <div id="familyBody">
+        <label class="flabel" data-i18n="f_rodzina_title"></label>
+        <div id="familyBody" style="margin-top:10px">
           <div class="family-card">
             <div class="family-card-header">
-              <span class="card-num">👤 Член семьи / Член сім'ї / Członek rodziny #1</span>
-              <button type="button" class="del-row-btn" onclick="deleteCard(this)">✕ Usuń / Видалити / Удалить</button>
+              <span class="card-num"></span>
+              <button type="button" class="del-row-btn" onclick="deleteCard(this)" data-i18n="btn_delete"></button>
             </div>
             <div class="family-card-body">
               <div class="field-full">
-                <div class="flabel">Imię i nazwisko <span>Ім'я і прізвище</span><em>Имя и фамилия</em></div>
+                <label class="flabel" data-i18n="fam_imie"></label>
                 <input type="text" name="fam_imie[]">
               </div>
               <div>
-                <div class="flabel">Data urodzenia <span>Дата народження</span><em>Дата рождения</em></div>
+                <label class="flabel" data-i18n="fam_data"></label>
                 <input type="date" name="fam_data[]">
               </div>
               <div>
-                <div class="flabel">Stopień pokrewieństwa <span>Ступінь рідства</span><em>Степень родства</em></div>
+                <label class="flabel" data-i18n="fam_stopien"></label>
                 <input type="text" name="fam_stopien[]">
               </div>
               <div>
-                <div class="flabel">Obywatelstwo <span>Громадянство</span><em>Гражданство</em></div>
+                <label class="flabel" data-i18n="fam_obyw"></label>
                 <input type="text" name="fam_obyw[]">
               </div>
               <div>
-                <div class="flabel">Miejsce zamieszkania <span>Місце проживання</span><em>Место проживания</em></div>
+                <label class="flabel" data-i18n="fam_miejsce"></label>
                 <input type="text" name="fam_miejsce[]">
               </div>
               <div>
-                <div class="flabel">Ubiega się o pobyt? <span>Подає заяву?</span><em>Подаёт заявку?</em></div>
+                <label class="flabel" data-i18n="fam_pobyt"></label>
                 <select name="fam_pobyt[]">
-                  <option value="">-- wybierz --</option>
-                  <option>tak / так / да</option>
-                  <option>nie / ні / нет</option>
+                  <option value="" data-i18n="opt_choose"></option>
+                  <option value="yes" data-i18n="opt_yes"></option>
+                  <option value="no" data-i18n="opt_no"></option>
                 </select>
               </div>
               <div>
-                <div class="flabel">Na utrzymaniu? <span>На утриманні?</span><em>На иждивении?</em></div>
+                <label class="flabel" data-i18n="fam_utrzym"></label>
                 <select name="fam_utrzym[]">
-                  <option value="">-- wybierz --</option>
-                  <option>tak / так / да</option>
-                  <option>nie / ні / нет</option>
+                  <option value="" data-i18n="opt_choose"></option>
+                  <option value="yes" data-i18n="opt_yes"></option>
+                  <option value="no" data-i18n="opt_no"></option>
                 </select>
               </div>
             </div>
           </div>
         </div>
-        <button type="button" class="add-row-btn" onclick="addFamilyCard()">+ Dodaj / Додати / Добавить члена семьи</button>
+        <button type="button" class="add-row-btn" onclick="addFamilyCard()" data-i18n="btn_add_family"></button>
       </div>
 
       <hr class="divider">
 
-      <!-- III. Pobyt -->
+      <!-- III -->
       <div class="field">
-        <div class="label-pl" style="margin-bottom:3px">III. Pobyt na terytorium RP</div>
-        <div class="label-ua" style="margin-bottom:3px">III. Перебування на території Польщі</div>
-        <div class="label-ru" style="margin-bottom:10px">III. Пребывание на территории Польши</div>
-        <div class="field">
-          <div class="label-pl">a) Wszystkie poprzednie pobyty w Polsce</div>
-          <div class="label-ua">a) Всі попередні перебування в Польщі</div>
-          <div class="label-ru">a) Все предыдущие пребывания в Польше</div>
-          <textarea name="poprzednie_pobyty" placeholder="np. 01.2022–06.2022, wiza"></textarea>
+        <label class="flabel" data-i18n="f_pobyt_title"></label>
+        <div class="field" style="margin-top:10px">
+          <label class="flabel-sm" data-i18n="f_poprz_pobyty"></label>
+          <textarea name="poprzednie_pobyty"></textarea>
         </div>
         <div class="field">
-          <div class="label-pl">b) Czy przebywa Pan/Pani aktualnie na terytorium RP?</div>
-          <div class="label-ua">b) Ви зараз перебуваєте в Польщі?</div>
-          <div class="label-ru">b) Вы сейчас находитесь в Польше?</div>
+          <label class="flabel-sm" data-i18n="f_aktualny_pobyt"></label>
           <div class="radio-group">
-            <label><input type="radio" name="aktualny_pobyt" value="tak"> tak / так / да</label>
-            <label><input type="radio" name="aktualny_pobyt" value="nie"> nie / ні / нет</label>
+            <label><input type="radio" name="aktualny_pobyt" value="tak"> <span data-i18n="opt_yes"></span></label>
+            <label><input type="radio" name="aktualny_pobyt" value="nie"> <span data-i18n="opt_no"></span></label>
           </div>
         </div>
         <div class="field">
-          <div class="label-pl">Data ostatniego wjazdu do Polski</div>
-          <div class="label-ua">Дата останнього в'їзду до Польщі</div>
-          <div class="label-ru">Дата последнего въезда в Польшу</div>
+          <label class="flabel-sm" data-i18n="f_data_wjazdu"></label>
           <input type="date" name="data_wjazdu" style="max-width:220px">
         </div>
         <div class="field">
-          <div class="label-pl">Na jakiej podstawie przebywa Pan/Pani aktualnie w Polsce?</div>
-          <div class="label-ua">На якій підставі ви зараз перебуваєте в Польщі?</div>
-          <div class="label-ru">На каком основании вы находитесь в Польше?</div>
+          <label class="flabel-sm" data-i18n="f_podstawa_title"></label>
           <div class="checkbox-list" style="margin-top:6px">
-            <label><input type="radio" name="podstawa_pobytu" value="bezwizowy"> 1) Ruch bezwizowy / Безвізовий режим / Безвизовый режим</label>
-            <label><input type="radio" name="podstawa_pobytu" value="wiza"> 2) Wiza / Віза / Виза</label>
-            <label><input type="radio" name="podstawa_pobytu" value="zezwolenie"> 3) Zezwolenie na pobyt czasowy / Дозвіл на тимчасове проживання / Разрешение на временное проживание</label>
-            <label><input type="radio" name="podstawa_pobytu" value="schengen"> 4) Dokument Schengen / Документ Шенгену / Документ Шенгена</label>
+            <label><input type="radio" name="podstawa_pobytu" value="bezwizowy"> <span data-i18n="podst_1"></span></label>
+            <label><input type="radio" name="podstawa_pobytu" value="wiza"> <span data-i18n="podst_2"></span></label>
+            <label><input type="radio" name="podstawa_pobytu" value="zezwolenie"> <span data-i18n="podst_3"></span></label>
+            <label><input type="radio" name="podstawa_pobytu" value="schengen"> <span data-i18n="podst_4"></span></label>
           </div>
         </div>
       </div>
 
       <hr class="divider">
 
-      <!-- IV–X -->
       <div class="field">
-        <div class="label-pl">IV. Podróże zagraniczne poza RP w ostatnich 5 latach</div>
-        <div class="label-ua">IV. Закордонні поїздки за останні 5 років</div>
-        <div class="label-ru">IV. Зарубежные поездки за последние 5 лет</div>
-        <textarea name="podroze" placeholder="np. Niemcy: 03.2021–05.2021"></textarea>
+        <label class="flabel" data-i18n="f_podroze"></label>
+        <textarea name="podroze"></textarea>
       </div>
       <hr class="divider">
       <div class="field">
-        <div class="label-pl">V. Środki finansowe na pokrycie kosztów utrzymania</div>
-        <div class="label-ua">V. Фінансові ресурси для покриття витрат</div>
-        <div class="label-ru">V. Финансовые средства для покрытия расходов</div>
-        <textarea name="srodki_finansowe" placeholder="Źródło i wysokość środków / Джерело та розмір коштів / Источник и размер средств"></textarea>
+        <label class="flabel" data-i18n="f_finanse"></label>
+        <textarea name="srodki_finansowe"></textarea>
       </div>
       <hr class="divider">
       <div class="field">
-        <div class="label-pl">VI. Ubezpieczenie zdrowotne</div>
-        <div class="label-ua">VI. Медичне страхування</div>
-        <div class="label-ru">VI. Медицинская страховка</div>
-        <textarea name="ubezpieczenie" placeholder="Rodzaj ubezpieczenia, numer polisy / Вид страхування / Вид страховки"></textarea>
+        <label class="flabel" data-i18n="f_ubezp"></label>
+        <textarea name="ubezpieczenie"></textarea>
       </div>
       <hr class="divider">
       <div class="field">
-        <div class="label-pl">VII. Zatrzymanie / areszt / zakaz opuszczania kraju?</div>
-        <div class="label-ua">VII. Затримання / арешт / заборона виїзду?</div>
-        <div class="label-ru">VII. Задержание / арест / запрет на выезд?</div>
+        <label class="flabel" data-i18n="f_zatrzym"></label>
         <div class="radio-group" style="margin-top:8px">
-          <label><input type="radio" name="zatrzymanie" value="tak"> tak / так / да</label>
-          <label><input type="radio" name="zatrzymanie" value="nie"> nie / ні / нет</label>
+          <label><input type="radio" name="zatrzymanie" value="tak"> <span data-i18n="opt_yes"></span></label>
+          <label><input type="radio" name="zatrzymanie" value="nie"> <span data-i18n="opt_no"></span></label>
         </div>
       </div>
       <hr class="divider">
       <div class="field">
-        <div class="label-pl">VIII. Karalność sądowa na terytorium RP?</div>
-        <div class="label-ua">VIII. Судимість на території Польщі?</div>
-        <div class="label-ru">VIII. Судимость на территории Польши?</div>
+        <label class="flabel" data-i18n="f_karalnosc"></label>
         <div class="radio-group" style="margin-top:8px; margin-bottom:10px">
-          <label><input type="radio" name="karalnosc" value="tak"> tak / так / да</label>
-          <label><input type="radio" name="karalnosc" value="nie"> nie / ні / нет</label>
+          <label><input type="radio" name="karalnosc" value="tak"> <span data-i18n="opt_yes"></span></label>
+          <label><input type="radio" name="karalnosc" value="nie"> <span data-i18n="opt_no"></span></label>
         </div>
-        <textarea name="karalnosc_opis" placeholder="Jeśli tak – szczegóły / Якщо так – деталі / Если да – подробности"></textarea>
+        <textarea name="karalnosc_opis"></textarea>
       </div>
       <hr class="divider">
       <div class="field">
-        <div class="label-pl">IX. Postępowanie karne lub w sprawach o wykroczenia?</div>
-        <div class="label-ua">IX. Кримінальна справа або справа про правопорушення?</div>
-        <div class="label-ru">IX. Уголовное дело или дело о правонарушении?</div>
+        <label class="flabel" data-i18n="f_postep"></label>
         <div class="radio-group" style="margin-top:8px; margin-bottom:10px">
-          <label><input type="radio" name="postepowanie" value="tak"> tak / так / да</label>
-          <label><input type="radio" name="postepowanie" value="nie"> nie / ні / нет</label>
+          <label><input type="radio" name="postepowanie" value="tak"> <span data-i18n="opt_yes"></span></label>
+          <label><input type="radio" name="postepowanie" value="nie"> <span data-i18n="opt_no"></span></label>
         </div>
-        <textarea name="postepowanie_opis" placeholder="Jeśli tak – szczegóły / Якщо так – деталі / Если да – подробности"></textarea>
+        <textarea name="postepowanie_opis"></textarea>
       </div>
       <hr class="divider">
       <div class="field">
-        <div class="label-pl">X. Zobowiązania wynikające z orzeczeń sądowych lub decyzji administracyjnych?</div>
-        <div class="label-ua">X. Зобов'язання за судовими рішеннями або адміністративними рішеннями?</div>
-        <div class="label-ru">X. Обязательства по судебным или административным решениям?</div>
+        <label class="flabel" data-i18n="f_zobowiaz"></label>
         <div class="radio-group" style="margin-top:8px; margin-bottom:10px">
-          <label><input type="radio" name="zobowiazania" value="tak"> tak / так / да</label>
-          <label><input type="radio" name="zobowiazania" value="nie"> nie / ні / нет</label>
+          <label><input type="radio" name="zobowiazania" value="tak"> <span data-i18n="opt_yes"></span></label>
+          <label><input type="radio" name="zobowiazania" value="nie"> <span data-i18n="opt_no"></span></label>
         </div>
-        <textarea name="zobowiazania_opis" placeholder="Jeśli tak – szczegóły / Якщо так – деталі / Если да – подробности"></textarea>
+        <textarea name="zobowiazania_opis"></textarea>
       </div>
     </div>
 
-    <button type="button" class="submit-btn" onclick="submitForm()">✔ Zatwierdź / Підтвердити / Подтвердить</button>
+    <button type="button" class="submit-btn" onclick="submitForm()" data-i18n="btn_submit"></button>
   </form>
 
-  <div id="successMsg" style="display:none; background:#d4edda; color:#155724; padding:20px; border-radius:10px; text-align:center; margin-top:20px; font-size:1.05rem;">
-    ✅ Ankieta wypełniona poprawnie! / Анкету заповнено правильно! / Анкета заполнена корректно!
-  </div>
+  <div id="successMsg" style="display:none; background:#d4edda; color:#155724; padding:20px; border-radius:10px; text-align:center; margin-top:20px; font-size:1.05rem;" data-i18n="msg_success"></div>
 </div>
 
 <script src="script.js"></script>
