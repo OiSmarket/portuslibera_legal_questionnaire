@@ -1,253 +1,280 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ankieta ZUW</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="lang-switcher">
-  <button class="lang-btn active" data-lang="pl" onclick="setLang('pl')">🇵🇱 PL</button>
-  <button class="lang-btn" data-lang="ua" onclick="setLang('ua')">🇺🇦 UA</button>
-  <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">🇷🇺 RU</button>
-  <button class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</button>
-</div>
-
-<div class="container">
-  <div class="header">
-    <h1 id="headerTitle"></h1>
-    <p id="headerSub"></p>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="pl" onclick="setLang('pl')">🇵🇱 PL</button>
+    <button class="lang-btn" data-lang="ua" onclick="setLang('ua')">🇺🇦 UA</button>
+    <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">🇷🇺 RU</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</button>
   </div>
 
-  <form class="form-body" id="mainForm">
-
-    <!-- SECTION A -->
-    <div class="section">
-      <div class="section-title" id="secA"></div>
-
-      <div class="row2">
-        <div class="field"><label data-key="f1"></label><input type="text" name="nazwisko"></div>
-        <div class="field"><label data-key="f2"></label><input type="text" name="nazwisko_poprzednie"></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label data-key="f3"></label><input type="text" name="nazwisko_rodowe"></div>
-        <div class="field"><label data-key="f4"></label><input type="text" name="imie"></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label data-key="f5"></label><input type="text" name="imie_poprzednie"></div>
-        <div class="field"><label data-key="f6"></label><input type="text" name="imie_ojca"></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label data-key="f7"></label><input type="text" name="imie_matki"></div>
-        <div class="field"><label data-key="f8"></label><input type="text" name="nazwisko_matki"></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label data-key="f9"></label><input type="date" name="data_urodzenia"></div>
-        <div class="field">
-          <label data-key="f10"></label>
-          <div class="radio-group">
-            <label><input type="radio" name="plec" value="M"> <span data-key="f10m"></span></label>
-            <label><input type="radio" name="plec" value="K"> <span data-key="f10k"></span></label>
-          </div>
-        </div>
-      </div>
-      <div class="row2">
-        <div class="field"><label data-key="f11"></label><input type="text" name="miejsce_urodzenia"></div>
-        <div class="field"><label data-key="f12"></label><input type="text" name="panstwo_urodzenia"></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label data-key="f13"></label><input type="text" name="narodowosc"></div>
-        <div class="field"><label data-key="f14"></label><input type="text" name="obywatelstwo"></div>
-      </div>
-      <div class="row2">
-        <div class="field">
-          <label data-key="f15"></label>
-          <select name="stan_cywilny">
-            <option value="" data-default></option>
-            <option data-sc="1"></option>
-            <option data-sc="2"></option>
-            <option data-sc="3"></option>
-            <option data-sc="4"></option>
-          </select>
-        </div>
-        <div class="field">
-          <label data-key="f16"></label>
-          <select name="wyksztalcenie">
-            <option value="" data-default></option>
-            <option data-ed="1"></option>
-            <option data-ed="2"></option>
-            <option data-ed="3"></option>
-            <option data-ed="4"></option>
-          </select>
-        </div>
-      </div>
-      <label class="section-label" data-key="f17"></label>
-      <div class="row3" style="margin-top:8px">
-        <div class="field"><label data-key="f17a"></label><input type="number" name="wzrost" placeholder="cm"></div>
-        <div class="field"><label data-key="f17b"></label><input type="text" name="kolor_oczu"></div>
-        <div class="field"><label data-key="f17c"></label><input type="text" name="znaki_szczegolne"></div>
-      </div>
-      <div class="row3">
-        <div class="field"><label data-key="f18"></label><input type="text" name="pesel" maxlength="11"></div>
-        <div class="field"><label data-key="f19"></label><input type="text" name="telefon"></div>
-        <div class="field"><label data-key="f20"></label><input type="email" name="email"></div>
-      </div>
+  <div class="container">
+    <div class="header">
+      <h1 id="headerTitle"></h1>
+      <p id="headerSub"></p>
     </div>
 
-    <!-- SECTION B -->
-    <div class="section">
-      <div class="section-title" id="secB"></div>
-      <div class="note" id="noteB"></div>
-      <div class="row2">
-        <div class="field">
-          <label data-key="b1"></label>
-          <select name="wojewodztwo" id="wojSelect">
-            <option value="" data-default></option>
-          </select>
+    <form class="form-body" id="mainForm" onsubmit="return false;">
+      <!-- SECTION A -->
+      <div class="section">
+        <div class="section-title" id="secA"></div>
+
+        <div class="row2">
+          <div class="field"><label data-key="f1"></label><input type="text" name="nazwisko" /></div>
+          <div class="field"><label data-key="f2"></label><input type="text" name="nazwisko_poprzednie" /></div>
         </div>
-        <div class="field"><label data-key="b2"></label><input type="text" name="miejscowosc"></div>
-      </div>
-      <div class="row3">
-        <div class="field"><label data-key="b3"></label><input type="text" name="ulica"></div>
-        <div class="field"><label data-key="b4"></label><input type="text" name="nr_domu"></div>
-        <div class="field"><label data-key="b5"></label><input type="text" name="nr_mieszkania"></div>
-      </div>
-      <div class="field" style="max-width:200px">
-        <label data-key="b6"></label>
-        <input type="text" name="kod_pocztowy" placeholder="00-000">
-      </div>
-    </div>
 
-    <!-- SECTION C -->
-    <div class="section">
-      <div class="section-title" id="secC"></div>
-
-      <!-- I. Cel pobytu -->
-      <div class="field">
-        <label class="section-label" data-key="cI"></label>
-        <div class="checkbox-list" style="margin-top:8px">
-          <label><input type="radio" name="cel_pobytu" value="1">  <span data-cp="1"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="2">  <span data-cp="2"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="3">  <span data-cp="3"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="4">  <span data-cp="4"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="5">  <span data-cp="5"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="6">  <span data-cp="6"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="7">  <span data-cp="7"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="8">  <span data-cp="8"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="9">  <span data-cp="9"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="10"> <span data-cp="10"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="11"> <span data-cp="11"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="12"> <span data-cp="12"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="13"> <span data-cp="13"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="14"> <span data-cp="14"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="15"> <span data-cp="15"></span></label>
-          <label><input type="radio" name="cel_pobytu" value="16"> <span data-cp="16"></span></label>
+        <div class="row2">
+          <div class="field"><label data-key="f3"></label><input type="text" name="nazwisko_rodowe" /></div>
+          <div class="field"><label data-key="f4"></label><input type="text" name="imie" /></div>
         </div>
-        <div class="field" style="margin-top:10px">
-          <label data-key="cIother"></label>
-          <input type="text" name="cel_inne">
+
+        <div class="row2">
+          <div class="field"><label data-key="f5"></label><input type="text" name="imie_poprzednie" /></div>
+          <div class="field"><label data-key="f6"></label><input type="text" name="imie_ojca" /></div>
         </div>
-      </div>
 
-      <hr class="divider">
-
-      <!-- II. Rodzina -->
-      <div class="field">
-        <label class="section-label" data-key="cII"></label>
-        <div id="familyBody" style="margin-top:10px"></div>
-        <button type="button" class="add-row-btn" id="addFamBtn" onclick="addFamilyCard()"></button>
-      </div>
-
-      <hr class="divider">
-
-      <!-- III. Pobyt -->
-      <div class="field">
-        <label class="section-label" data-key="cIII"></label>
-        <div class="field" style="margin-top:10px">
-          <label data-key="cIIIa"></label>
-          <textarea name="poprzednie_pobyty"></textarea>
+        <div class="row2">
+          <div class="field"><label data-key="f7"></label><input type="text" name="imie_matki" /></div>
+          <div class="field"><label data-key="f8"></label><input type="text" name="nazwisko_matki" /></div>
         </div>
-        <div class="field">
-          <label data-key="cIIIb"></label>
-          <div class="radio-group">
-            <label><input type="radio" name="aktualny_pobyt" value="tak"> <span data-yes></span></label>
-            <label><input type="radio" name="aktualny_pobyt" value="nie"> <span data-no></span></label>
+
+        <div class="row2">
+          <div class="field"><label data-key="f9"></label><input type="date" name="data_urodzenia" /></div>
+          <div class="field">
+            <label data-key="f10"></label>
+            <div class="radio-group">
+              <label><input type="radio" name="plec" value="M"> <span data-key="f10m"></span></label>
+              <label><input type="radio" name="plec" value="K"> <span data-key="f10k"></span></label>
+            </div>
           </div>
         </div>
-        <div class="field">
-          <label data-key="cIIIdate"></label>
-          <input type="date" name="data_wjazdu" style="max-width:220px">
+
+        <div class="row2">
+          <div class="field"><label data-key="f11"></label><input type="text" name="miejsce_urodzenia" /></div>
+          <div class="field"><label data-key="f12"></label><input type="text" name="panstwo_urodzenia" /></div>
         </div>
-        <div class="field">
-          <label data-key="cIIIbasis"></label>
-          <div class="checkbox-list" style="margin-top:6px">
-            <label><input type="radio" name="podstawa_pobytu" value="bezwizowy"> <span data-pb="1"></span></label>
-            <label><input type="radio" name="podstawa_pobytu" value="wiza">       <span data-pb="2"></span></label>
-            <label><input type="radio" name="podstawa_pobytu" value="zezwolenie"> <span data-pb="3"></span></label>
-            <label><input type="radio" name="podstawa_pobytu" value="schengen">   <span data-pb="4"></span></label>
+
+        <div class="row2">
+          <div class="field"><label data-key="f13"></label><input type="text" name="narodowosc" /></div>
+          <div class="field"><label data-key="f14"></label><input type="text" name="obywatelstwo" /></div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label data-key="f15"></label>
+            <select name="stan_cywilny">
+              <option value="" data-default></option>
+              <option data-sc="1"></option>
+              <option data-sc="2"></option>
+              <option data-sc="3"></option>
+              <option data-sc="4"></option>
+            </select>
+          </div>
+          <div class="field">
+            <label data-key="f16"></label>
+            <select name="wyksztalcenie">
+              <option value="" data-default></option>
+              <option data-ed="1"></option>
+              <option data-ed="2"></option>
+              <option data-ed="3"></option>
+              <option data-ed="4"></option>
+            </select>
           </div>
         </div>
-      </div>
 
-      <hr class="divider">
-      <div class="field"><label data-key="cIV"></label><textarea name="podroze"></textarea></div>
-      <hr class="divider">
-      <div class="field"><label data-key="cV"></label><textarea name="srodki_finansowe"></textarea></div>
-      <hr class="divider">
-      <div class="field"><label data-key="cVI"></label><textarea name="ubezpieczenie"></textarea></div>
-      <hr class="divider">
+        <label class="section-label" data-key="f17"></label>
+        <div class="row3" style="margin-top:8px">
+          <div class="field"><label data-key="f17a"></label><input type="number" name="wzrost" placeholder="cm" /></div>
+          <div class="field"><label data-key="f17b"></label><input type="text" name="kolor_oczu" /></div>
+          <div class="field"><label data-key="f17c"></label><input type="text" name="znaki_szczegolne" /></div>
+        </div>
 
-      <div class="field">
-        <label data-key="cVII"></label>
-        <div class="radio-group" style="margin-top:8px">
-          <label><input type="radio" name="zatrzymanie" value="tak"> <span data-yes></span></label>
-          <label><input type="radio" name="zatrzymanie" value="nie"> <span data-no></span></label>
+        <div class="row3">
+          <div class="field"><label data-key="f18"></label><input type="text" name="pesel" maxlength="11" /></div>
+          <div class="field"><label data-key="f19"></label><input type="text" name="telefon" /></div>
+          <div class="field"><label data-key="f20"></label><input type="email" name="email" /></div>
         </div>
       </div>
-      <hr class="divider">
 
-      <div class="field">
-        <label data-key="cVIII"></label>
-        <div class="radio-group" style="margin-top:8px; margin-bottom:10px">
-          <label><input type="radio" name="karalnosc" value="tak"> <span data-yes></span></label>
-          <label><input type="radio" name="karalnosc" value="nie"> <span data-no></span></label>
+      <!-- SECTION B -->
+      <div class="section">
+        <div class="section-title" id="secB"></div>
+        <div class="note" id="noteB"></div>
+
+        <div class="row2">
+          <div class="field">
+            <label data-key="b1"></label>
+            <select name="wojewodztwo" id="wojSelect">
+              <option value="" data-default></option>
+            </select>
+          </div>
+          <div class="field"><label data-key="b2"></label><input type="text" name="miejscowosc" /></div>
         </div>
-        <label data-key="cVIIIdetail"></label>
-        <textarea name="karalnosc_opis"></textarea>
-      </div>
-      <hr class="divider">
 
-      <div class="field">
-        <label data-key="cIX"></label>
-        <div class="radio-group" style="margin-top:8px; margin-bottom:10px">
-          <label><input type="radio" name="postepowanie" value="tak"> <span data-yes></span></label>
-          <label><input type="radio" name="postepowanie" value="nie"> <span data-no></span></label>
+        <div class="row3">
+          <div class="field"><label data-key="b3"></label><input type="text" name="ulica" /></div>
+          <div class="field"><label data-key="b4"></label><input type="text" name="nr_domu" /></div>
+          <div class="field"><label data-key="b5"></label><input type="text" name="nr_mieszkania" /></div>
         </div>
-        <label data-key="cIXdetail"></label>
-        <textarea name="postepowanie_opis"></textarea>
-      </div>
-      <hr class="divider">
 
-      <div class="field">
-        <label data-key="cX"></label>
-        <div class="radio-group" style="margin-top:8px; margin-bottom:10px">
-          <label><input type="radio" name="zobowiazania" value="tak"> <span data-yes></span></label>
-          <label><input type="radio" name="zobowiazania" value="nie"> <span data-no></span></label>
+        <div class="field" style="max-width:200px">
+          <label data-key="b6"></label>
+          <input type="text" name="kod_pocztowy" placeholder="00-000" />
         </div>
-        <label data-key="cXdetail"></label>
-        <textarea name="zobowiazania_opis"></textarea>
       </div>
-    </div>
 
-    <button type="button" class="submit-btn" id="submitBtn" onclick="submitForm()"></button>
-  </form>
+      <!-- SECTION C -->
+      <div class="section">
+        <div class="section-title" id="secC"></div>
 
-  <div id="successMsg" style="display:none; background:#d4edda; color:#155724; padding:20px;
-       border-radius:10px; text-align:center; margin-top:20px; font-size:1.05rem;"></div>
-</div>
+        <!-- I. Purpose -->
+        <div class="field">
+          <label class="section-label" data-key="cI"></label>
+          <div class="checkbox-list" style="margin-top:8px">
+            <label><input type="radio" name="cel_pobytu" value="1">  <span data-cp="1"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="2">  <span data-cp="2"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="3">  <span data-cp="3"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="4">  <span data-cp="4"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="5">  <span data-cp="5"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="6">  <span data-cp="6"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="7">  <span data-cp="7"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="8">  <span data-cp="8"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="9">  <span data-cp="9"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="10"> <span data-cp="10"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="11"> <span data-cp="11"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="12"> <span data-cp="12"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="13"> <span data-cp="13"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="14"> <span data-cp="14"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="15"> <span data-cp="15"></span></label>
+            <label><input type="radio" name="cel_pobytu" value="16"> <span data-cp="16"></span></label>
+          </div>
 
-<script src="script.js"></script>
+          <div class="field" style="margin-top:10px">
+            <label data-key="cIother"></label>
+            <input type="text" name="cel_inne" />
+          </div>
+
+          <!-- Employer Email (hidden by default) -->
+          <div class="row2" id="employerEmailRow" style="margin-top:16px; display:none;">
+            <div class="field">
+              <label data-key="fEmployerEmail"></label>
+              <input type="email" name="employer_email" />
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- II. Family -->
+        <div class="field">
+          <label class="section-label" data-key="cII"></label>
+          <div id="familyBody" style="margin-top:10px"></div>
+          <button type="button" class="add-row-btn" id="addFamBtn" onclick="addFamilyCard()"></button>
+        </div>
+
+        <hr class="divider">
+
+        <!-- III. Stay -->
+        <div class="field">
+          <label class="section-label" data-key="cIII"></label>
+          <div class="field" style="margin-top:10px">
+            <label data-key="cIIIa"></label>
+            <textarea name="poprzednie_pobyty"></textarea>
+          </div>
+
+          <div class="field">
+            <label data-key="cIIIb"></label>
+            <div class="radio-group">
+              <label><input type="radio" name="aktualny_pobyt" value="tak"> <span data-yes></span></label>
+              <label><input type="radio" name="aktualny_pobyt" value="nie"> <span data-no></span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label data-key="cIIIdate"></label>
+            <input type="date" name="data_wjazdu" style="max-width:220px" />
+          </div>
+
+          <div class="field">
+            <label data-key="cIIIbasis"></label>
+            <div class="checkbox-list" style="margin-top:6px">
+              <label><input type="radio" name="podstawa_pobytu" value="bezwizowy"> <span data-pb="1"></span></label>
+              <label><input type="radio" name="podstawa_pobytu" value="wiza">       <span data-pb="2"></span></label>
+              <label><input type="radio" name="podstawa_pobytu" value="zezwolenie"> <span data-pb="3"></span></label>
+              <label><input type="radio" name="podstawa_pobytu" value="schengen">   <span data-pb="4"></span></label>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="field"><label data-key="cIV"></label><textarea name="podroze"></textarea></div>
+        <hr class="divider">
+        <div class="field"><label data-key="cV"></label><textarea name="srodki_finansowe"></textarea></div>
+        <hr class="divider">
+        <div class="field"><label data-key="cVI"></label><textarea name="ubezpieczenie"></textarea></div>
+        <hr class="divider">
+
+        <div class="field">
+          <label data-key="cVII"></label>
+          <div class="radio-group" style="margin-top:8px">
+            <label><input type="radio" name="zatrzymanie" value="tak"> <span data-yes></span></label>
+            <label><input type="radio" name="zatrzymanie" value="nie"> <span data-no></span></label>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="field">
+          <label data-key="cVIII"></label>
+          <div class="radio-group" style="margin-top:8px; margin-bottom:10px">
+            <label><input type="radio" name="karalnosc" value="tak"> <span data-yes></span></label>
+            <label><input type="radio" name="karalnosc" value="nie"> <span data-no></span></label>
+          </div>
+          <label data-key="cVIIIdetail"></label>
+          <textarea name="karalnosc_opis"></textarea>
+        </div>
+
+        <hr class="divider">
+
+        <div class="field">
+          <label data-key="cIX"></label>
+          <div class="radio-group" style="margin-top:8px; margin-bottom:10px">
+            <label><input type="radio" name="postepowanie" value="tak"> <span data-yes></span></label>
+            <label><input type="radio" name="postepowanie" value="nie"> <span data-no></span></label>
+          </div>
+          <label data-key="cIXdetail"></label>
+          <textarea name="postepowanie_opis"></textarea>
+        </div>
+
+        <hr class="divider">
+
+        <div class="field">
+          <label data-key="cX"></label>
+          <div class="radio-group" style="margin-top:8px; margin-bottom:10px">
+            <label><input type="radio" name="zobowiazania" value="tak"> <span data-yes></span></label>
+            <label><input type="radio" name="zobowiazania" value="nie"> <span data-no></span></label>
+          </div>
+          <label data-key="cXdetail"></label>
+          <textarea name="zobowiazania_opis"></textarea>
+        </div>
+      </div>
+
+      <button type="button" class="submit-btn" id="submitBtn" onclick="submitForm()"></button>
+    </form>
+
+    <div id="successMsg" style="display:none; background:#d4edda; color:#155724; padding:20px;
+         border-radius:10px; text-align:center; margin-top:20px; font-size:1.05rem;"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
