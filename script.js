@@ -1,6 +1,4 @@
-// ═══════════════════════════════════════════════════════════
-//  TRANSLATIONS
-// ═══════════════════════════════════════════════════════════
+// Translations and labels
 const LANG = {
   pl: {
     pageTitle:"Ankieta ZUW",
@@ -19,6 +17,7 @@ const LANG = {
     f15:"15. Stan cywilny", f16:"16. Wykształcenie",
     f17:"17. Rysopis", f17a:"Wzrost (cm)", f17b:"Kolor oczu", f17c:"Znaki szczególne",
     f18:"18. Numer PESEL", f19:"19. Numer telefonu", f20:"20. Email",
+    fEmployerEmail:"📧 E-mail pracodawcy",
     b1:"1. Województwo", b2:"2. Miejscowość", b3:"3. Ulica",
     b4:"4. Numer domu", b5:"5. Numer mieszkania", b6:"6. Kod pocztowy",
     cI:"I. Główny cel pobytu (wybrać JEDEN)",
@@ -49,6 +48,8 @@ const LANG = {
     successMsg:"✅ Ankieta wypełniona poprawnie!",
     alertRequired:"Proszę wypełnić wymagane pola.",
     alertNoDelete:"Nie można usunąć ostatniego wpisu.",
+    alertEmployerEmailRequired:"Proszę podać e-mail pracodawcy.",
+    alertEmployerEmailInvalid:"Nieprawidłowy adres e-mail pracodawcy.",
     selectDefault:"-- wybierz --",
     sc1:"kawaler/panna", sc2:"żonaty/zamężna", sc3:"rozwiedziony/rozwiedziona", sc4:"wdowiec/wdowa",
     ed1:"podstawowe", ed2:"średnie", ed3:"wyższe", ed4:"zawodowe",
@@ -93,6 +94,7 @@ const LANG = {
     f15:"15. Сімейний стан", f16:"16. Освіта",
     f17:"17. Опис зовнішності", f17a:"Зріст (см)", f17b:"Колір очей", f17c:"Особливі прикмети",
     f18:"18. Номер PESEL", f19:"19. Номер телефону", f20:"20. Електронна пошта",
+    fEmployerEmail:"📧 Електронна пошта роботодавця",
     b1:"1. Воєводство", b2:"2. Населений пункт", b3:"3. Вулиця",
     b4:"4. Номер будинку", b5:"5. Номер квартири", b6:"6. Поштовий індекс",
     cI:"I. Основна мета перебування (обрати ОДНУ)",
@@ -123,6 +125,8 @@ const LANG = {
     successMsg:"✅ Анкету заповнено правильно!",
     alertRequired:"Будь ласка, заповніть обов'язкові поля.",
     alertNoDelete:"Не можна видалити останній запис.",
+    alertEmployerEmailRequired:"Будь ласка, вкажіть електронну пошту роботодавця.",
+    alertEmployerEmailInvalid:"Недійсна електронна пошта роботодавця.",
     selectDefault:"-- оберіть --",
     sc1:"неодружений/незаміжня", sc2:"одружений/заміжня",
     sc3:"розлучений/розлучена", sc4:"вдівець/вдова",
@@ -140,7 +144,7 @@ const LANG = {
     cp11:"Проживання з іноземцем",
     cp12:"Мобільність члена сім'ї вченого",
     cp13:"Жертва торгівлі людьми",
-    cp14:"Короткострокове перебування",
+    cp14:"Коротковремене перебування",
     cp15:"Продовження перебування – сезонна робота",
     cp16:"Інші обставини",
     pb1:"Безвізовий режим", pb2:"Віза",
@@ -168,6 +172,7 @@ const LANG = {
     f15:"15. Семейное положение", f16:"16. Образование",
     f17:"17. Внешность", f17a:"Рост (см)", f17b:"Цвет глаз", f17c:"Особые приметы",
     f18:"18. Номер PESEL", f19:"19. Номер телефона", f20:"20. Электронная почта",
+    fEmployerEmail:"📧 Эл. почта работодателя",
     b1:"1. Воеводство", b2:"2. Населённый пункт", b3:"3. Улица",
     b4:"4. Номер дома", b5:"5. Номер квартиры", b6:"6. Почтовый индекс",
     cI:"I. Основная цель пребывания (выбрать ОДНУ)",
@@ -198,6 +203,8 @@ const LANG = {
     successMsg:"✅ Анкета заполнена корректно!",
     alertRequired:"Пожалуйста, заполните обязательные поля.",
     alertNoDelete:"Нельзя удалить последнюю запись.",
+    alertEmployerEmailRequired:"Пожалуйста, укажите эл. почту работодателя.",
+    alertEmployerEmailInvalid:"Недействительный адрес эл. почты работодателя.",
     selectDefault:"-- выберите --",
     sc1:"холост/не замужем", sc2:"женат/замужем",
     sc3:"разведён/разведена", sc4:"вдовец/вдова",
@@ -243,6 +250,7 @@ const LANG = {
     f15:"15. Marital status", f16:"16. Education",
     f17:"17. Physical description", f17a:"Height (cm)", f17b:"Eye colour", f17c:"Distinguishing marks",
     f18:"18. PESEL number", f19:"19. Phone number", f20:"20. Email",
+    fEmployerEmail:"📧 Employer's email",
     b1:"1. Voivodeship", b2:"2. City / Town", b3:"3. Street",
     b4:"4. House number", b5:"5. Apartment number", b6:"6. Postal code",
     cI:"I. Main purpose of stay (choose ONE)",
@@ -273,6 +281,8 @@ const LANG = {
     successMsg:"✅ Questionnaire completed correctly!",
     alertRequired:"Please fill in the required fields.",
     alertNoDelete:"Cannot delete the last entry.",
+    alertEmployerEmailRequired:"Please provide the employer's email.",
+    alertEmployerEmailInvalid:"Invalid employer email address.",
     selectDefault:"-- select --",
     sc1:"single", sc2:"married", sc3:"divorced", sc4:"widowed",
     ed1:"primary", ed2:"secondary", ed3:"higher", ed4:"vocational",
@@ -301,11 +311,7 @@ const LANG = {
   }
 };
 
-// ═══════════════════════════════════════════════════════════
-//  CORE
-// ═══════════════════════════════════════════════════════════
 let currentLang = 'pl';
-
 function L() { return LANG[currentLang]; }
 
 function setLang(lang) {
@@ -316,6 +322,7 @@ function setLang(lang) {
   renderAll();
 }
 
+// Render labels, selects and texts
 function renderAll() {
   const l = L();
   document.title = l.pageTitle;
@@ -328,14 +335,12 @@ function renderAll() {
 
   // Generic data-key labels
   document.querySelectorAll('[data-key]').forEach(el => {
-    const v = l[el.dataset.key];
-    if (v !== undefined) el.textContent = v;
+    const key = el.dataset.key;
+    if (key && l[key] !== undefined) el.textContent = l[key];
   });
 
-  // Select: default option
-  document.querySelectorAll('option[data-default]').forEach(el => {
-    el.textContent = l.selectDefault;
-  });
+  // Default option text
+  document.querySelectorAll('option[data-default]').forEach(el => el.textContent = l.selectDefault);
 
   // Stan cywilny
   [1,2,3,4].forEach(i => {
@@ -349,68 +354,65 @@ function renderAll() {
     if (o) o.textContent = l['ed'+i];
   });
 
-  // Cel pobytu
+  // Cel pobytu options
   for (let i = 1; i <= 16; i++) {
     const el = document.querySelector(`[data-cp="${i}"]`);
-    if (el) el.textContent = `${i}) ${l['cp'+i]}`;
+    if (el) el.textContent = `${i}) ${l['cp'+i] || ''}`;
   }
 
   // Podstawa pobytu
   [1,2,3,4].forEach(i => {
     const el = document.querySelector(`[data-pb="${i}"]`);
-    if (el) el.textContent = `${i}) ${l['pb'+i]}`;
+    if (el) el.textContent = `${i}) ${l['pb'+i] || ''}`;
   });
 
-  // Yes / No spans
+  // Yes/No
   document.querySelectorAll('[data-yes]').forEach(el => el.textContent = l.yes);
-  document.querySelectorAll('[data-no]').forEach(el  => el.textContent = l.no);
+  document.querySelectorAll('[data-no]').forEach(el => el.textContent = l.no);
 
   // Województwa
   const ws = document.getElementById('wojSelect');
   if (ws) {
-    const saved = ws.value;
+    const val = ws.value;
     ws.innerHTML = `<option value="" data-default>${l.selectDefault}</option>`;
     l.woj.forEach(w => {
       const o = document.createElement('option');
-      o.textContent = w; o.value = w;
+      o.value = w; o.textContent = w;
       ws.appendChild(o);
     });
-    ws.value = saved;
+    ws.value = val;
   }
 
   // Submit button
   document.getElementById('submitBtn').textContent = l.submitBtn;
 
-  // Family cards
-  renderFamilyLabels();
+  // Family card labels and add button
   document.getElementById('addFamBtn').textContent = l.addFam;
+  renderFamilyLabels();
+
+  // Ensure employer email label updated
+  const empLabel = document.querySelector('#employerEmailRow [data-key="fEmployerEmail"]');
+  if (empLabel) empLabel.textContent = l.fEmployerEmail;
+
+  // Wire the employer email toggle on purpose radios
+  setupEmployerEmailToggle();
 }
 
-// ═══════════════════════════════════════════════════════════
-//  FAMILY CARDS
-// ═══════════════════════════════════════════════════════════
+// Family cards helpers
 function renderFamilyLabels() {
   const l = L();
   document.querySelectorAll('#familyBody .family-card').forEach((card, i) => {
     const num = card.querySelector('.card-num');
     if (num) num.textContent = `👤 ${l.famCard} #${i + 1}`;
     const del = card.querySelector('.del-row-btn');
-    if (del) del.textContent = l.delFam;
+    if (del) del.textContent = l.delFam || '✕';
     card.querySelectorAll('[data-fam]').forEach(el => {
-      const v = l[el.dataset.fam];
-      if (v !== undefined) el.textContent = v;
+      const key = el.dataset.fam;
+      if (l[key] !== undefined) el.textContent = l[key];
     });
     card.querySelectorAll('option[data-default]').forEach(el => el.textContent = l.selectDefault);
     card.querySelectorAll('[data-yes]').forEach(el => el.textContent = l.yes);
-    card.querySelectorAll('[data-no]').forEach(el  => el.textContent = l.no);
-  });
-}
-
-function updateCardNumbers() {
-  const l = L();
-  document.querySelectorAll('#familyBody .family-card').forEach((card, i) => {
-    const num = card.querySelector('.card-num');
-    if (num) num.textContent = `👤 ${l.famCard} #${i + 1}`;
+    card.querySelectorAll('[data-no]').forEach(el => el.textContent = l.no);
   });
 }
 
@@ -425,23 +427,23 @@ function familyCardHTML(num) {
     <div class="family-card-body">
       <div class="field-full">
         <label data-fam="famName">${l.famName}</label>
-        <input type="text" name="fam_imie[]">
+        <input type="text" name="fam_imie[]" />
       </div>
       <div>
         <label data-fam="famDob">${l.famDob}</label>
-        <input type="date" name="fam_data[]">
+        <input type="date" name="fam_data[]" />
       </div>
       <div>
         <label data-fam="famRel">${l.famRel}</label>
-        <input type="text" name="fam_stopien[]">
+        <input type="text" name="fam_stopien[]" />
       </div>
       <div>
         <label data-fam="famCit">${l.famCit}</label>
-        <input type="text" name="fam_obyw[]">
+        <input type="text" name="fam_obyw[]" />
       </div>
       <div>
         <label data-fam="famAddr">${l.famAddr}</label>
-        <input type="text" name="fam_miejsce[]">
+        <input type="text" name="fam_miejsce[]" />
       </div>
       <div>
         <label data-fam="famStay">${l.famStay}</label>
@@ -467,6 +469,7 @@ function addFamilyCard() {
   const container = document.getElementById('familyBody');
   const num = container.querySelectorAll('.family-card').length + 1;
   container.insertAdjacentHTML('beforeend', familyCardHTML(num));
+  renderFamilyLabels();
 }
 
 function deleteCard(btn) {
@@ -479,9 +482,65 @@ function deleteCard(btn) {
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-//  SUBMIT
-// ═══════════════════════════════════════════════════════════
+function updateCardNumbers() {
+  const l = L();
+  document.querySelectorAll('#familyBody .family-card').forEach((card, i) => {
+    const num = card.querySelector('.card-num');
+    if (num) num.textContent = `👤 ${l.famCard} #${i + 1}`;
+  });
+}
+
+// Employer email toggle: show employerEmailRow when "cel_pobytu" == "1"
+// also mark field required when visible
+function setupEmployerEmailToggle() {
+  const radios = document.querySelectorAll('input[name="cel_pobytu"]');
+  const empRow = document.getElementById('employerEmailRow');
+  if (!empRow || radios.length === 0) return;
+
+  const empInput = empRow.querySelector('input[name="employer_email"]');
+  const empLabel = empRow.querySelector('[data-key="fEmployerEmail"]');
+
+  function update() {
+    const checked = document.querySelector('input[name="cel_pobytu"][value="1"]');
+    const show = checked && checked.checked;
+    empRow.style.display = show ? '' : 'none';
+
+    // required attribute and visual cue
+    if (show) {
+      empInput.required = true;
+      empRow.classList.add('required');
+      // append asterisk if not present
+      if (empLabel && !empLabel.textContent.includes('*')) {
+        empLabel.textContent = `${L().fEmployerEmail} *`;
+      }
+    } else {
+      empInput.required = false;
+      empRow.classList.remove('required');
+      // restore label without asterisk
+      if (empLabel) {
+        empLabel.textContent = L().fEmployerEmail;
+      }
+      empInput.style.borderColor = '#c8d6e5';
+    }
+  }
+
+  // remove previous listeners to avoid duplicates
+  radios.forEach(r => {
+    r.removeEventListener('change', update);
+    r.addEventListener('change', update);
+  });
+
+  // initial state
+  update();
+}
+
+// Basic email check
+function isValidEmail(email) {
+  // simple RFC-like check (not exhaustive)
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Submit: basic validation and feedback
 function submitForm() {
   const form = document.getElementById('mainForm');
   const required = ['nazwisko', 'imie', 'data_urodzenia', 'obywatelstwo'];
@@ -491,18 +550,38 @@ function submitForm() {
     if (el && !el.value.trim()) { el.style.borderColor = '#e74c3c'; valid = false; }
     else if (el) el.style.borderColor = '#c8d6e5';
   });
+
+  // Employer email conditional validation
+  const empRow = document.getElementById('employerEmailRow');
+  const empInput = empRow ? empRow.querySelector('input[name="employer_email"]') : null;
+  const purposeWork = document.querySelector('input[name="cel_pobytu"][value="1"]');
+  const isWorkSelected = purposeWork && purposeWork.checked;
+
+  if (isWorkSelected) {
+    if (!empInput || !empInput.value.trim()) {
+      if (empInput) empInput.style.borderColor = '#e74c3c';
+      alert(L().alertEmployerEmailRequired);
+      return;
+    }
+    if (!isValidEmail(empInput.value.trim())) {
+      empInput.style.borderColor = '#e74c3c';
+      alert(L().alertEmployerEmailInvalid);
+      return;
+    }
+    // valid employer email -> reset border
+    empInput.style.borderColor = '#c8d6e5';
+  }
+
   if (!valid) { alert(L().alertRequired); return; }
+
   const msg = document.getElementById('successMsg');
   msg.textContent = L().successMsg;
   msg.style.display = 'block';
   window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 }
 
-// ═══════════════════════════════════════════════════════════
-//  INIT
-// ═══════════════════════════════════════════════════════════
+// Init on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-  // Add first family card
   document.getElementById('familyBody').innerHTML = familyCardHTML(1);
   renderAll();
 });
