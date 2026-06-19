@@ -44,8 +44,9 @@ const LANG = {
     cX:"X. Zobowiązania wynikające z orzeczeń sądowych lub decyzji administracyjnych?",
     cXdetail:"Jeśli tak – szczegóły:",
     yes:"tak", no:"nie",
-    submitBtn:"✔ Zatwierdź",
-    successMsg:"✅ Ankieta wypełniona poprawnie!",
+    submitBtn:"📤 Wyślij",
+    submittingBtn:"📤 Wysyłanie...",
+    successMsg:"✅ Dane zostały pomyślnie przesłane. Dziękujemy!",
     alertRequired:"Proszę wypełnić wymagane pola.",
     alertNoDelete:"Nie można usunąć ostatniego wpisu.",
     alertEmployerEmailRequired:"Proszę podać e-mail pracodawcy.",
@@ -121,8 +122,9 @@ const LANG = {
     cX:"X. Зобов'язання за судовими або адміністративними рішеннями?",
     cXdetail:"Якщо так – деталі:",
     yes:"так", no:"ні",
-    submitBtn:"✔ Підтвердити",
-    successMsg:"✅ Анкету заповнено правильно!",
+    submitBtn:"📤 Надіслати",
+    submittingBtn:"📤 Надсилання...",
+    successMsg:"✅ Дані успішно надіслано. Дякуємо!",
     alertRequired:"Будь ласка, заповніть обов'язкові поля.",
     alertNoDelete:"Не можна видалити останній запис.",
     alertEmployerEmailRequired:"Будь ласка, вкажіть електронну пошту роботодавця.",
@@ -199,8 +201,9 @@ const LANG = {
     cX:"X. Обязательства по судебным или административным решениям?",
     cXdetail:"Если да – подробности:",
     yes:"да", no:"нет",
-    submitBtn:"✔ Подтвердить",
-    successMsg:"✅ Анкета заполнена корректно!",
+    submitBtn:"📤 Отправить",
+    submittingBtn:"📤 Отправка...",
+    successMsg:"✅ Данные успешно отправлены. Спасибо!",
     alertRequired:"Пожалуйста, заполните обязательные поля.",
     alertNoDelete:"Нельзя удалить последнюю запись.",
     alertEmployerEmailRequired:"Пожалуйста, укажите эл. почту работодателя.",
@@ -277,8 +280,9 @@ const LANG = {
     cX:"X. Obligations arising from court or administrative decisions?",
     cXdetail:"If yes – details:",
     yes:"yes", no:"no",
-    submitBtn:"✔ Confirm",
-    successMsg:"✅ Questionnaire completed correctly!",
+    submitBtn:"📤 Submit",
+    submittingBtn:"📤 Sending...",
+    successMsg:"✅ Your data has been successfully sent. Thank you!",
     alertRequired:"Please fill in the required fields.",
     alertNoDelete:"Cannot delete the last entry.",
     alertEmployerEmailRequired:"Please provide the employer's email.",
@@ -540,7 +544,7 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Submit: basic validation and feedback
+// Submit: basic validation and feedback + simulate sending
 function submitForm() {
   const form = document.getElementById('mainForm');
   const required = ['nazwisko', 'imie', 'data_urodzenia', 'obywatelstwo'];
@@ -574,10 +578,27 @@ function submitForm() {
 
   if (!valid) { alert(L().alertRequired); return; }
 
-  const msg = document.getElementById('successMsg');
-  msg.textContent = L().successMsg;
-  msg.style.display = 'block';
-  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  // Disable button and show spinner
+  const btn = document.getElementById('submitBtn');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.innerHTML = `<span class="spinner"></span> ${L().submittingBtn}`;
+
+  // Simulate network request
+  setTimeout(() => {
+    // Restore button
+    btn.disabled = false;
+    btn.textContent = originalText;
+
+    // Show success message
+    const msg = document.getElementById('successMsg');
+    msg.textContent = L().successMsg;
+    msg.style.display = 'block';
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+    // Optional: Reset form (uncomment if needed)
+    // form.reset();
+  }, 1000);
 }
 
 // Init on DOMContentLoaded
