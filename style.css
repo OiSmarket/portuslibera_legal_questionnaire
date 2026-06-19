@@ -1,7 +1,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #222; }
 
-/* ── Language switcher ── */
+/* Language switcher */
 .lang-switcher {
   position: sticky; top: 0; z-index: 100;
   background: #1a3a6b;
@@ -20,7 +20,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #
 .lang-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
 .lang-btn.active { background: #fff; color: #1a3a6b; border-color: #fff; }
 
-/* ── Layout ── */
+/* Layout */
 .container { max-width: 820px; margin: 0 auto; padding: 0 16px 40px; }
 
 .header {
@@ -43,7 +43,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #
   font-size: 0.95rem; font-weight: bold; margin-bottom: 18px;
 }
 
-/* ── Fields & labels ── */
+/* Fields & labels */
 .field { margin-bottom: 16px; }
 
 label {
@@ -65,18 +65,18 @@ input:focus, select:focus, textarea:focus {
 }
 textarea { resize: vertical; min-height: 70px; }
 
-/* ── Grids ── */
+/* Grids */
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
 
-/* ── Note box ── */
+/* Note box */
 .note {
   background: #eef4fb; border-left: 4px solid #2e6da4;
   padding: 10px 14px; border-radius: 0 8px 8px 0;
   font-size: 0.85rem; color: #444; margin-bottom: 16px; line-height: 1.5;
 }
 
-/* ── Radio / checkbox ── */
+/* Radio / checkbox */
 .radio-group { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 6px; }
 .radio-group label {
   display: flex; align-items: center; gap: 6px;
@@ -90,7 +90,7 @@ textarea { resize: vertical; min-height: 70px; }
 }
 .checkbox-list input[type="radio"] { margin-top: 2px; flex-shrink: 0; }
 
-/* ── Family cards ── */
+/* Family cards */
 .family-card {
   border: 1.5px solid #c8d6e5; border-radius: 10px;
   margin-bottom: 14px; overflow: hidden;
@@ -120,7 +120,7 @@ textarea { resize: vertical; min-height: 70px; }
 .family-card input:focus,
 .family-card select:focus { border-color: #2e6da4; outline: none; background: #fff; }
 
-/* ── Buttons ── */
+/* Buttons */
 .add-row-btn {
   margin-top: 10px;
   background: #e8f0fb; border: 1.5px dashed #2e6da4;
@@ -147,8 +147,13 @@ textarea { resize: vertical; min-height: 70px; }
 
 .divider { border: none; border-top: 1.5px solid #e0e8f0; margin: 20px 0; }
 
-/* ── Responsive ── */
+/* Responsive */
 @media (max-width: 600px) {
   .row2, .row3 { grid-template-columns: 1fr; }
   .family-card-body { grid-template-columns: 1fr; }
+}
+
+/* visual cue for required employer email */
+#employerEmailRow.required input {
+  border-color: #e74c3c;
 }
